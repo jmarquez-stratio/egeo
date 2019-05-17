@@ -20,7 +20,7 @@ const gulpSass = require('gulp-sass');
 const gulpPostCss = require('gulp-postcss');
 
 const postCssPlugins = [
-   autoprefixer({ browsers: ['IE 11'] }),
+   autoprefixer({ overrideBrowserslist: ['IE 11'] }),
    cssnano({ reduceIdents: false, zindex: false })
 ];
 

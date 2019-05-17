@@ -74,7 +74,7 @@ export class StTwoListSelectionViewComponent {
       return this.config && this.config.fetchingDataText || '';
    }
 
-   get menuOptionList(): StDropDownMenuItem[]{
+   get menuOptionList(): StDropDownMenuItem[] {
       return this.config && this.config.menuOptionList;
    }
 

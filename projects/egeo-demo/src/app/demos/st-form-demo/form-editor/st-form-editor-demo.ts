@@ -45,7 +45,7 @@ export class StFormEditorDemoComponent {
       try {
          this.jsonSchema = JSON.parse(jsonSchema);
          this.schemaError = undefined;
-      } catch(error) {
+      } catch (error) {
          this.schemaError = error;
          console.log(error);
       }

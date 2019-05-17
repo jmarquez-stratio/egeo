@@ -2,16 +2,21 @@
    "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
    "dest": "../../dist/egeo",
    "lib": {
-     "entryFile": "src/public_api.ts",
-     "externals": {
-       "lodash": "lodash",
-       "ngx-virtual-scroller": "ngx-virtual-scroller",
-       "prismjs": "prismjs"
-     },
-     "umdModuleIds": {
-       "lodash" : "_",
-       "ngx-virtual-scroller" : "vscroller",
-       "prismjs": "prismjs"
-     }
-   }
- }
+      "entryFile": "src/public_api.ts",
+      "externals": {
+         "lodash": "lodash",
+         "ngx-virtual-scroller": "ngx-virtual-scroller",
+         "prismjs": "prismjs"
+      },
+      "umdModuleIds": {
+         "lodash": "_",
+         "ngx-virtual-scroller": "vscroller",
+         "prismjs": "prismjs"
+      }
+   },
+   "whitelistedNonPeerDependencies": [
+      "lodash",
+      "ngx-virtual-scroller",
+      "prismjs"
+   ]
+}

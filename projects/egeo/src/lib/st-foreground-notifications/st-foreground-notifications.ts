@@ -101,7 +101,9 @@ export class StForegroundNotificationsComponent implements AfterViewInit, OnChan
    }
 
    ngOnChanges(): void {
-
+      if (this.notifications && this.notifications.length < this.currentNotification) {
+         this.currentNotification = this.notifications.length;
+      }
       this.listStatusNotifications = [];
       this.fillStatusNotifications();
    }

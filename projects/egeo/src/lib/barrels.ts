@@ -104,5 +104,6 @@ export const DECLARATIONS: any[] = [
    StTooltipModule,
    StTwoListSelectionModule,
    StVerticalTabsModule,
-   StWidgetModule
+   StWidgetModule,
+   StZeroPageModule
 ];

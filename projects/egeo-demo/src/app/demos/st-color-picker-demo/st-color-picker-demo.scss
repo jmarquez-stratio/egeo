@@ -8,26 +8,25 @@
  *
  * SPDX-License-Identifier: Apache-2.0.
  */
+@import 'constants/colors';
+@import 'constants/fonts';
 
-@import 'constants/index';
-
-st-dropdown-menu {
-   position: relative;
+.color-picker {
+   width: 100%;
    display: block;
 }
 
-.logout-button {
-   border-top: 1px solid $neutral-03;
-   padding: 15px 0 10px;
-   text-align: center;
+.demo {
+   display: block;
+   padding: 60px 0;
+}
 
-   &:hover {
-      background-color: $action-secondary-01;
-   }
+.filter {
+   text-align: right;
+   margin-left: auto;
+}
 
-   i {
-      display: inline-flex;
-      margin-right: 10px;
-      font-size: $egeo-font-size-small;
-   }
+st-color-picker {
+   display: block;
+   margin: 80px 0;
 }

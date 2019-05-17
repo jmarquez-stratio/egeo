@@ -97,7 +97,7 @@ export class StTableDemoComponent {
 
    // Selectable tables
 
-   public onSelectRow(event: any, rowIndex: number, selected: Array<boolean>) {
+   public onSelectRow(event: any, rowIndex: number, selected: Array<boolean>): void {
       selected[rowIndex] = event.checked;
    }
 
@@ -113,7 +113,7 @@ export class StTableDemoComponent {
       return this.selectedCheckboxes[tablePosition].indexOf(true) > -1;
    }
 
-   public onSelectAll(selected: boolean, tablePosition: number) {
+   public onSelectAll(selected: boolean, tablePosition: number): void {
       this.selectedCheckboxes[tablePosition] = [];
       for (let i = 0; i < this.data.length; ++i) {
          this.selectedCheckboxes[tablePosition].push(selected);

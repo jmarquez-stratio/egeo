@@ -22,7 +22,7 @@ import { StTwoListSelectionElement } from '../st-two-list-selection.model';
 // Other
 import { StCheckboxModule } from '../../st-checkbox/st-checkbox.module';
 import { StDropdownMenuModule } from '../../st-dropdown-menu/st-dropdown-menu.module';
-import { StDropDownMenuItem } from 'st-dropdown-menu/st-dropdown-menu.interface';
+import { StDropDownMenuItem } from './../../st-dropdown-menu/st-dropdown-menu.interface';
 
 let comp: ListItemComponent;
 let fixture: ComponentFixture<ListItemComponent>;

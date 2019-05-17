@@ -27,6 +27,6 @@ export class DemoLayoutComponent {
    }
 
    public updateDemoTitle(demoPosition: number): void {
-      this.title = EGEO_DEMO_MENU[demoPosition] ? EGEO_DEMO_MENU[demoPosition].name: '';
+      this.title = EGEO_DEMO_MENU[demoPosition] ? EGEO_DEMO_MENU[demoPosition].name : '';
    }
 }

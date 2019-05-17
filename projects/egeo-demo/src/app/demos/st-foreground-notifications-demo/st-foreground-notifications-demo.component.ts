@@ -21,7 +21,8 @@ export class StForegroundNotificationsDemoComponent implements AfterViewInit {
    items: any[] = [
       [{
          status: 'critical',
-         html: '<p>Stratio audit failed to connect to Postgres database.  <a part="some-box">Check the database</a> <a part="some-box">Check the database 2</a></p>',
+         html: `<p>Stratio audit failed to connect to Postgres database.  <a part="some-box">Check the database</a>
+          <a part="some-box">Check the database 2</a></p>`,
          nameEvents: ['doCheckDatabase', 'doCheckDatabaseSecond']
       }],
       [{
@@ -75,7 +76,8 @@ export class StForegroundNotificationsDemoComponent implements AfterViewInit {
          status: 'success'
       },
       {
-         text: `Stratio audit failed to connect to Postgres database / second page.The request is understood, but it has been refused or access is not allowed. An accompanying error message will explain why.
+         text: `Stratio audit failed to connect to Postgres database / second page.The request is understood,
+          but it has been refused or access is not allowed. An accompanying error message will explain why.
          This code is used when requests are being denied due to update limits . Other reasons for this status being returned are listed
          alongside the error codes in the table below.The request is understood, but it has been refused or access is not allowed.
          An accompanying error message will explain why. This code is used when requests are being denied due to update limits .`,

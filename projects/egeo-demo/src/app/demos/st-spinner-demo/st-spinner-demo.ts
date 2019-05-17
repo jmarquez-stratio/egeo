@@ -21,5 +21,5 @@ export class StSpinnerDemoComponent {
       ts: 'demo/st-spinner-demo/st-spinner-demo.ts',
       component: 'lib/st-spinner/st-spinner.component.ts'
    };
-   public size = 50;
+   public size: number = 50;
 }

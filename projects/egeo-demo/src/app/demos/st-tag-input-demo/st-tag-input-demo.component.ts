@@ -104,7 +104,8 @@ export class StTagInputDemoComponent implements OnInit {
    public errorTemplateDriveMessage: string | null = null;
    public disabledReactive: boolean = true;
    public disabledTemplateDrive: boolean = true;
-   public pattern: any = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+   public pattern: RegExp = new RegExp(`/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9]
+      [0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/`);
 
    constructor(private _fb: FormBuilder) {
       this.reactiveForm = _fb.group({
@@ -114,7 +115,7 @@ export class StTagInputDemoComponent implements OnInit {
          'tag-input-reactive-required': [this.tags.reactiveRequired, Validators.required],
          'tag-input-reactive-disabled': [this.tags.reactiveDisabled],
          'tag-input-reactive-autocomplete': [this.tags.reactiveDisabled],
-         'tag-input-auto-completed-group-list': [this.tags.autoCompletedGroupList, Validators.compose([Validators.minLength(2), Validators.maxLength(5)])],
+         'tag-input-auto-completed-group-list': [this.tags.autoCompletedGroupList, Validators.compose([Validators.minLength(2), Validators.maxLength(5)])]
       });
    }
 
@@ -175,8 +176,7 @@ export class StTagInputDemoComponent implements OnInit {
       const currentValue = this.reactiveForm.controls['tag-input-auto-completed-group-list'].value;
       if (currentValue.length < 2) {
          return 'You have to enter two items at leas';
-      }
-      else if (currentValue.length > 5) {
+      } else if (currentValue.length > 5) {
          return 'Only 5 items are allowed';
       }
       return null;
