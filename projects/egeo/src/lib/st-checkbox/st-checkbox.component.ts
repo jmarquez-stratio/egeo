@@ -67,6 +67,7 @@ export class StCheckboxComponent implements ControlValueAccessor {
    @Input() value: any;
    /** @Input {string} [contextualHelp=''] Information displayed at a tooltip */
    @Input() contextualHelp: string;
+   @Input() partialChecked: boolean;
    /** @Output {{ checked: boolean, value: any }} [change=''] This is emitted when user clicks on the checkbox */
    @Output() change: EventEmitter<any> = new EventEmitter<any>();
 
@@ -90,6 +91,10 @@ export class StCheckboxComponent implements ControlValueAccessor {
       if (!this.readonly) {
          if (!this.disabled) {
             this._checked = !this._checked;
+            if (this.partialChecked) {
+               this.partialChecked = false;
+               this._checked = true;
+            }
             this._controlValueAccessorChangeFn(this._checked);
             this.change.emit({ checked: this.checked, value: this.value });
          }

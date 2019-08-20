@@ -45,16 +45,18 @@
       position: relative;
       top: .125rem;
       margin-right: 5px;
-      &.icon-check2 {
-         background-color: $action-primary-default;
-         border: 1px solid $action-primary-default;
-      }
+
       &:before {
          color: $neutral-00;
          position: absolute;
          top: -.1rem;
          left: -.0625rem;
       }
+   }
+
+   & &--selected {
+      background-color: $action-primary-default;
+      border: 1px solid $action-primary-default;
    }
 
    &.st-label {
