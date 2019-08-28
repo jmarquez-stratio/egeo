@@ -29,8 +29,10 @@ export function composeRelease(packageName: string): void {
 
    copyFiles(projectDir, 'LICENSE', releasePath);
    copyFiles(packagesDir, 'README.md', releasePath);
-   copyFiles(sourcePath, 'package.json', releasePath);
-   if (packageName === 'egeo') {
+
+   if (packageName !== 'egeo') {
+      copyFiles(sourcePath, 'package.json', releasePath);
+   } else {
       copyFiles(projectDir, 'CHANGELOG.md', releasePath);
       generateDocs(sourcePath, '**/README.md', releasePath);
    }
