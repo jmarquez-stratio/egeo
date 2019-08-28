@@ -24,7 +24,7 @@
    "dependencies": {
       "lodash": "4.17.13",
       "ngx-virtual-scroller": "^1.0.11",
-      "prismjs": "prismjs"
+      "prismjs": "1.16.0"
    },
    "peerDependencies": {
      "@angular/common": "^7.0.0",

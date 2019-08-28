@@ -9,8 +9,8 @@
  * SPDX-License-Identifier: Apache-2.0.
  */
 
- @import 'constants/colors';
- @import 'constants/fonts';
+ @import '../constants/fonts';
+ @import '../constants/colors';
 
  $border : 1px solid  $neutral-03;
 
