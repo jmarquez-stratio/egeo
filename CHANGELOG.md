@@ -1,6 +1,6 @@
 # Changelog
 
-## 13.4.1 (upcoming)
+## 13.4.1 (September 04, 2019)
 
 **Fixed bugs:**
 
