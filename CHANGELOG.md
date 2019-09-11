@@ -1,6 +1,6 @@
 # Changelog
 
-## 16.4.2 (upcoming)
+## 16.4.2 (September 11, 2019)
 
 **Fixed bugs:**
 
