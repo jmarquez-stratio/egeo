@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.4.2 (upcoming)
+
+**Fixed bugs:**
+
+* st-foreground-notifications: Fix refreshing notification statuses
+
 ## 16.4.1 (September 04, 2019)
 
 **Fixed bugs:**

@@ -140,9 +140,15 @@ export class StForegroundNotificationsComponent implements AfterViewInit, OnChan
             }
          }
       }
+      this.checkStatus();
+   }
+
+   checkStatus(): void {
       this.statusValue = this.getStatus();
       this.statusIconValue = this.getStatusIcon();
       this.statusNotificationsValue = this.getStatusNotifications();
+
+      this.cd.detectChanges();
    }
 
    decrementPage(): void {
@@ -157,6 +163,7 @@ export class StForegroundNotificationsComponent implements AfterViewInit, OnChan
    fillStatusNotifications(): void {
       if (this.notifications && this.notifications.length > 0) {
          this.status = this.notifications[this.getIndexCurrentNotification()].status;
+         this.checkStatus();
       }
 
       this.notifications.forEach(() => {
