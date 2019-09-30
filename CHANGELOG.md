@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.0.4 (upcoming)
+
+**Fixed bugs:**
+
+* ngx-virtual-scroller: Put version to 3.0.2 to fix compatibility error with internal library tweenjs
+
 ## 15.0.3 (February 15, 2019)
 
 **Fixed bugs:**
