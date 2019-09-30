@@ -1,6 +1,6 @@
 # Changelog
 
-## 15.0.4 (upcoming)
+## 15.0.4 (September 30, 2019)
 
 **Fixed bugs:**
 
