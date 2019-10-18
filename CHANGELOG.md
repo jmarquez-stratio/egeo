@@ -1,6 +1,6 @@
 # Changelog
 
-## 17.1.1 (upcoming)
+## 17.1.1 (October 18, 2019)
 
 **Fixed bugs:**
 
