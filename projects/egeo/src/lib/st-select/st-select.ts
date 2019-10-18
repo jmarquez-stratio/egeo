@@ -110,6 +110,7 @@ export class StSelectComponent implements AfterViewInit, ControlValueAccessor, O
    @Input()
    set options(options: StDropDownMenuItem[] | StDropDownMenuGroup[]) {
       this._options = _cloneDeep(options);
+      this.filteredOptions = this._options;
       const selectedItem: StDropDownMenuItem | undefined = this.findByProperty('selected', true);
       this.removeAllSelected();
       if (selectedItem) {

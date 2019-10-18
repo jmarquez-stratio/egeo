@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.1.1 (upcoming)
+
+**Fixed bugs:**
+
+* st-select: When options change update filteredOptions too
+
 ## 17.1.0 (October 18, 2019)
 
 **New features:**
