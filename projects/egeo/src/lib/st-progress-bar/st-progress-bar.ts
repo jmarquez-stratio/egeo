@@ -30,6 +30,10 @@ import { Component, Input, HostBinding } from '@angular/core';
  * ```
  */
 
-export class StProgressBarComponent {}
+export class StProgressBarComponent {
 
+   /** @Input (Boolean) [wider] Option for a bigger progress-bar */
+   @HostBinding('class.wider')
+   @Input() wider: Boolean;
 
+}

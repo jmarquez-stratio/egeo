@@ -21,6 +21,10 @@ $progress-bar-piece-animation-duration: 250ms !default;
    background-color: #bce7fe;
    position: relative;
 
+   &.wider {
+      height: 5px;
+   }
+
    .progress-bar, .progress-bar::after {
       height: 100%;
       position: absolute;
@@ -143,6 +147,3 @@ $progress-bar-piece-animation-duration: 250ms !default;
       }
    }
 }
-
-
-

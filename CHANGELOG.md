@@ -6,11 +6,11 @@
 
 * Update icon font to 1.24
 
-
 **New features:**
 
 * st-menu: Create component
 * grid: Allow to customize max-width with a css variable
+* progress-bar: Option for a bigger progress-bar
 
 ## 17.2.0 (October 25, 2019)
 
