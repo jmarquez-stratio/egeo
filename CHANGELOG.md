@@ -4,7 +4,7 @@
 
 **Others:**
 
-* Update icon font to 1.24
+* Update icon font to 1.26
 
 **New features:**
 
