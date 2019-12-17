@@ -62,10 +62,11 @@ export class StHeaderComponent implements AfterViewInit {
 
    /** @Input {StHeaderMenuOption[]} [menu] Array with menu option to show */
    @Input() menu: StHeaderMenuOption[] = [];
-   /** @Input {StHeaderMenuOption[]} [menu] Array with menu option to show */
+   /** @Input {boolean} [navigateByDefault] True if we want menu to manage navigation, false if navigation will be managed from the outside */
    @Input() navigateByDefault: boolean = true;
-   /** @Output {string} [selectMenu] Notify any menu option selection */
-   @Output() selectMenu: EventEmitter<string> = new EventEmitter<string>();
+
+   /** @Output {StHeaderSelection} [selectMenu] Notify any menu option selection */
+   @Output() selectMenu: EventEmitter<StHeaderSelection> = new EventEmitter<StHeaderSelection>();
 
    @ViewChild('headerDivElement', {static: false}) headerDivElement: ElementRef;
    @ViewChild('headerFixPart', {static: false}) headerFixPart: ElementRef;
@@ -103,7 +104,7 @@ export class StHeaderComponent implements AfterViewInit {
             this._router.navigate([selected.link]);
          }
       }
-      this.selectMenu.emit(selected.link);
+      this.selectMenu.emit(selected);
    }
 
    public get menuContainerId(): string {

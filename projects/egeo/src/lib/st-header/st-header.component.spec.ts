@@ -111,7 +111,7 @@ describe('StHeader', () => {
          expect(router.navigate).toHaveBeenCalled();
          expect(router.navigate).toHaveBeenCalledWith(['test']);
          expect(responseFunction).toHaveBeenCalled();
-         expect(responseFunction).toHaveBeenCalledWith('test');
+         expect(responseFunction).toHaveBeenCalledWith({ link: 'test' });
 
          expect(comp.showMenuNames).toBeTruthy();
 
@@ -136,7 +136,7 @@ describe('StHeader', () => {
          comp.onSelectMenu(responseValue);
          expect(router.navigate).not.toHaveBeenCalled();
          expect(responseFunction).toHaveBeenCalled();
-         expect(responseFunction).toHaveBeenCalledWith('test');
+         expect(responseFunction).toHaveBeenCalledWith({ link: 'test' });
       }));
 
       it('Should be able to open external link in new page',
@@ -155,7 +155,7 @@ describe('StHeader', () => {
             comp.onSelectMenu(responseValue);
             expect(router.navigate).not.toHaveBeenCalled();
             expect(responseFunction).toHaveBeenCalled();
-            expect(responseFunction).toHaveBeenCalledWith('test');
+            expect(responseFunction).toHaveBeenCalledWith({ link: 'test', external: true, openInNewPage: true });
             expect(windowRefService.nativeWindow.open).toHaveBeenCalled();
             expect(windowRefService.nativeWindow.open).toHaveBeenCalledWith('test', '_blank');
          }));
@@ -176,7 +176,7 @@ describe('StHeader', () => {
             comp.onSelectMenu(responseValue);
             expect(router.navigate).not.toHaveBeenCalled();
             expect(responseFunction).toHaveBeenCalled();
-            expect(responseFunction).toHaveBeenCalledWith('test');
+            expect(responseFunction).toHaveBeenCalledWith({ link: 'test', external: true, openInNewPage: false });
             expect(windowRefService.nativeWindow.open).toHaveBeenCalled();
             expect(windowRefService.nativeWindow.open).toHaveBeenCalledWith('test', '_self');
          }));

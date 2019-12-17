@@ -24,10 +24,12 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { StHeaderMenuOption, StHeaderSelection, StHeaderMenuItem } from '../st-header.model';
+import { HostBinding } from '@angular/core';
 
 @Component({
    selector: 'st-header-menu-option',
    templateUrl: './menu-option.html',
+   styleUrls: ['./menu-option.scss'],
    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StHeaderMenuOptionComponent implements OnDestroy {
@@ -38,7 +40,10 @@ export class StHeaderMenuOptionComponent implements OnDestroy {
    @Output() selectMenu: EventEmitter<StHeaderSelection> = new EventEmitter<StHeaderSelection>();
 
    @ViewChild('menu', {static: false}) menu: ElementRef;
-   public isActive: boolean = false;
+   @HostBinding('class.active') public get isCurrentRoute(): boolean {
+      return this.isRouteActive();
+   }
+   public isActive: boolean;
 
    private subscription: Subscription;
    private actualPath: string = '';

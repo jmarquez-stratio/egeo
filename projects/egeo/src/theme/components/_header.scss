@@ -14,7 +14,7 @@
 
 .sth-header {
    position: fixed;
-   height: 70px;
+   height: 50px;
    width: 100%;
    left: 0;
    right: 0;
@@ -39,9 +39,10 @@
          flex-direction: row;
          flex-wrap: nowrap;
          align-self: center;
-         height: 70px;
+         height: 50px;
 
          .sth-header-logo {
+            position: relative;
             margin-right: 60px;
             display: flex;
             align-self: center;
@@ -52,7 +53,7 @@
             align-self: center;
             align-items: center;
             margin-right: 60px;
-            height: 70px;
+            height: 50px;
             cursor: pointer;
          }
       }
@@ -63,7 +64,7 @@
          align-content: flex-end;
          justify-content: flex-end;
          align-items: center;
-         height: 70px;
+         height: 50px;
          flex-grow: 1;
       }
    }
@@ -74,14 +75,8 @@
    flex-direction: row;
    flex-wrap: nowrap;
    align-content: flex-end;
-
-   .sth-header-menu-item {
-      padding: 0;
-      margin-right: 45px;
-      &:last-child {
-         margin-right: 0;
-      }
-   }
+   height: 100%;
+   align-items: center;
 }
 
 .sth-header-menu-option {
@@ -94,14 +89,13 @@
    flex-direction: row;
    flex-wrap: nowrap;
    align-items: flex-end;
+   position: relative;
 
+   &.active,
    &:hover {
       color: $neutral-full;
    }
 
-   &.active {
-      color: $neutral-full;
-   }
    .sth-header-menu-option-name {
       display: flex;
       flex-direction: row;
@@ -109,6 +103,7 @@
       align-items: flex-end;
       text-decoration: none;
       color: inherit;
+      font-size: $egeo-font-size-14;
 
       .sth-header-menu-option-icon {
          width: 15px;

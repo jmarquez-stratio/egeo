@@ -13,7 +13,7 @@ import {StDropDownMenuItem} from '../st-dropdown-menu/st-dropdown-menu.interface
 import { TranslateableElement } from '../utils/egeo-resolver/egeo-resolve-model';
 
 export class StHeaderMenuOption {
-   icon: string; // Icon to show on left of menu label
+   icon?: string; // Icon to show on left of menu label
    label: string; // Menu label to show
    subMenus: StHeaderSubMenuOption[]; // List of submenu options
    link: string;
@@ -39,7 +39,7 @@ export class StHeaderMenuItem extends StDropDownMenuItem {
 }
 
 export class StHeaderMenuOptionSchema {
-   icon: string; // Icon to show on left of menu label
+   icon?: string; // Icon to show on left of menu label
    label: TranslateableElement; // Menu label to show
    subMenus: StHeaderSubMenuOptionSchema[]; // List of submenu options
    link: string;

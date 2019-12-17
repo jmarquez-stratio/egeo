@@ -2,7 +2,9 @@
 
 ## 20.0.0 (upcoming)
 
-* Pending changelog
+**Breaking changes:**
+
+* st-header: Include new UX defined styles to header
 
 ## 19.0.0 (upcoming)
 **New features:**
@@ -31,7 +33,6 @@ in origin list (optional parameter).
 * Update icon palette
 * Update font size variables
 * st-select: Apply new UX font size and color in forms
-
 
 ## 18.0.0 (January 16, 2020)
 
