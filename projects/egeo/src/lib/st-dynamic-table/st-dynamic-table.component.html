@@ -27,7 +27,8 @@
           [statusFilter]="statusFilter"
           (selectAll)="onSelectAll($event)"
           (changeOrder)="onChangeOrder($event)"
-          (selectFilters)="onSelectedFilters($event)">
+          (selectFilters)="onSelectedFilters($event)"
+          (clickFilter)="onFilterClick($event)">
    <tbody>
    <tr st-table-row *ngFor="let item of items; let row = index" [selected]="selected[row]">
       <td st-table-cell st-table-row-content

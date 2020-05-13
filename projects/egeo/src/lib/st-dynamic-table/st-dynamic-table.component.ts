@@ -106,7 +106,15 @@ export class StDynamicTableComponent {
    @Input() fixedHeader: boolean = false;
 
    /** @Input {TemplateRef} [templateContentFilter=undefined] Reference to paint a custom template inside popover content */
-   @Input() templateContentFilter?: TemplateRef<any>;
+   // @Input() templateContentFilter?: TemplateRef<any>;
+   @Input()
+   get templateContentFilter(): TemplateRef<any> {
+      return this._templateContentFilter;
+   }
+
+   set templateContentFilter(_templateRef: TemplateRef<any>) {
+      this._templateContentFilter = _templateRef;
+   }
 
    /** @Input {boolean[]} [statusFilter=] List of status filter by column, needed with templateContentFilter */
    @Input() statusFilter?: boolean[];
@@ -132,6 +140,9 @@ export class StDynamicTableComponent {
     */
    @Output() selectAll: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+   /** @Output {string} Event emitted when using filters custom template  */
+   @Output() clickFilter: EventEmitter<StTableHeader> = new EventEmitter();
+
    /** @Output {StTableHeader[]} [selectFilters=] Event emitted  when user interacts with filter button without a custom template */
    @Output() selectFilters: EventEmitter<StTableHeader[]> = new EventEmitter<StTableHeader[]>();
    /** @Output {EventEmitter<number} [showHoverMenu=] Event emitted when user clicks on hover button of a row */
@@ -144,6 +155,8 @@ export class StDynamicTableComponent {
    public fields: StDynamicTableHeader[] = [];
 
    private _jsonSchema: JSONSchema4;
+
+   private _templateContentFilter: TemplateRef<any>;
 
    constructor(private _cd: ChangeDetectorRef) {
    }
@@ -158,6 +171,10 @@ export class StDynamicTableComponent {
       this._jsonSchema = _jsonSchema;
       this.fields = StDynamicTableUtils.getHeaderFieldsFromJsonSchema(this._jsonSchema, this.uiDefinitions);
       this._cd.markForCheck();
+   }
+
+   public onFilterClick(selectedFilter: any): void {
+      this.clickFilter.emit(selectedFilter);
    }
 
    public onChangeOrder(order: Order): void {
@@ -202,4 +219,3 @@ export class StDynamicTableComponent {
    }
 
 }
-

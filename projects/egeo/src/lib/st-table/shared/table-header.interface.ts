@@ -20,6 +20,7 @@ export interface StFilterHeader {
    showSettingBtn?: boolean;
    title: string;
    buttonText?: string;
+   templateRef?: string;
 }
 
 export interface StTableHeader {
@@ -28,4 +29,5 @@ export interface StTableHeader {
    sortable?: boolean;
    filters?: StFilterHeader;
    filterable?: boolean;
+   templateRef?: string;
 }

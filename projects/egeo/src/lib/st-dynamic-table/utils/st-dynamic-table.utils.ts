@@ -32,7 +32,7 @@ export class StDynamicTableUtils {
                      label: _property.title,
                      reference: _property.$ref,
                      filters: filters,
-                     filterable: filters && filters.filterConfig.length > 0,
+                     filterable: filters && (filters.templateRef !== undefined || (filters.filterConfig && filters.filterConfig.length > 0)),
                      sortable: isSortable
                   });
                }
@@ -55,6 +55,11 @@ export class StDynamicTableUtils {
                name: <any> _value
             });
          });
+      } else if (propertyDefinition.templateRef) {
+         filters = {
+            title: propertyDefinition.title,
+            templateRef: propertyDefinition.templateRef
+         };
       }
 
       return filters;

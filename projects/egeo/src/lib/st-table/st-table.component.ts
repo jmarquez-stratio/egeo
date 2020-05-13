@@ -146,10 +146,13 @@ export class StTableComponent implements OnInit {
 
    /** @Output {Order} [changeOrder=''] Event emitted with the new order which has to be applied to the table rows */
    @Output() changeOrder: EventEmitter<Order> = new EventEmitter();
-   /** @Output {boolean} [selectAll=''] Event emitted  when user interacts with the checkbox to select or deselect
+   /** @Output {boolean} [selectAll=''] Event emitted when user interacts with the checkbox to select or deselect
     * all rows
     */
    @Output() selectAll: EventEmitter<boolean> = new EventEmitter();
+
+   /** @Output {string} Event emitted when clicking on filters icon  */
+   @Output() clickFilter: EventEmitter<StTableHeader> = new EventEmitter();
 
    /** @Output {StTableHeader[]} [selectFilters=''] Event emitted  when user interacts with filter button without a custom template */
    @Output() selectFilters: EventEmitter<StTableHeader[]> = new EventEmitter();
@@ -187,15 +190,18 @@ export class StTableComponent implements OnInit {
    }
 
    public isFilterable(field: StTableHeader): boolean {
-      return (this.filterable && _get(field, 'filters.filterConfig')) || (this.filterable && this.templateContentFilter && _get(field, 'filters'));
+      return this.filterable && (_get(field, 'filters.filterConfig')) ||
+            (this.templateContentFilter && _get(field, 'filters')) ||
+            _get(field, 'filters.templateRef');
    }
 
-   public onClickPopover(index: number): void {
+   public onClickPopover(index: number, field: StTableHeader): void {
       if (this.visibleFilter === index) {
          this.visibleFilter = -1;
       } else {
          this.visibleFilter = index;
       }
+      this.clickFilter.emit(field);
       this._cd.markForCheck();
    }
 

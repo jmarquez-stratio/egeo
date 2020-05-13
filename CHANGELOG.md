@@ -6,6 +6,7 @@
 
 * st-dropdown-menu: Apply new UX definition
 * st-table: Allow to customize some styles from outside using css variables
+* st-table: Emit event when filter icon is clicked
 * st-dynamic-table: Create dynamic table component in order to render tables using a json schema to define their structure
 * st-spinner: Allow to customize its color from outside using css variables
 * st-sidebar: Allow to customize some styles from outside using css variables

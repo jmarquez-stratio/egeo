@@ -33,7 +33,7 @@
                [filtered]="statusFilter[i]"
                [hidden]="visibleFilter !== i"
                (filter)="onSelectedFilters($event)"
-               (click)="onClickPopover(i)">
+               (click)="onClickPopover(i, field)">
             </st-popover-filter>
          </th>
          <th *ngIf="hasHoverMenu"></th> <!-- For hover cell -->
