@@ -117,7 +117,7 @@ export class StDynamicTableComponent {
    }
 
    /** @Input {boolean[]} [statusFilter=] List of status filter by column, needed with templateContentFilter */
-   @Input() statusFilter?: boolean[];
+   @Input() statusFilter?: boolean[] = [];
 
    /** @Input {number} [activeHoverMenu=] Position of the current active hover menu */
    @Input() activeHoverMenu?: number;

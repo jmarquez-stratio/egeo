@@ -23,6 +23,7 @@
 
 * st-table: Filtered header fields are introduced as input and they are not modified inside table component
 * st-tag: Fix default style without size class
+* st-table: Fix table filters popup position
 
 **Others:**
 
