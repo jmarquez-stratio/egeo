@@ -206,6 +206,20 @@
                            [visualMode]="1">
          </st-dropdown-menu>
       </st-dynamic-table>
+
+      <h2 class="subtitle">Tables with Fks and groups</h2>
+      <div class="row">
+         <div class="col-sm-12 col-lg-12 col-xs-12">
+            <st-dynamic-table [jsonSchema]="jsonSchemaFk" [items]="fks" [sortable]="false" [filterable]="true"
+               [selectable]="true" [selectableAll]="true" [hasHoverMenu]="true" [activeHoverMenu]="activeHoverMenuPosition[0]"
+               (selectAll)="onSelectAll($event, 0)" (selectRow)="onSelectRow($event, 0)"
+               (showHoverMenu)="onShowHoverMenu($event, 0)">
+               <st-dropdown-menu st-dynamic-table-hover-menu class="hover-menu" [items]="rowActions"
+                  [active]="activeHoverMenuPosition[0] !== undefined" [visualMode]="1">
+               </st-dropdown-menu>
+            </st-dynamic-table>
+         </div>
+      </div>
    </section>
 
 </st-docs>

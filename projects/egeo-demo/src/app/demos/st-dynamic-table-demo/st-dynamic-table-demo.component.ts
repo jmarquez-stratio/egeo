@@ -69,6 +69,39 @@ export class StDynamicTableDemoComponent implements OnInit {
       }
    };
 
+   public jsonSchemaFk: JSONSchema4 = {
+      '$schema': 'http://json-schema.org/schema#',
+      'title': 'Fks Table',
+      'type': 'object',
+      'description': 'Fks properties',
+      'optional': true,
+      'properties': {
+         'id': {
+            'title': 'Identificador',
+            'description': 'Identificador'
+         },
+         'codigo': {
+            'title': 'Codigo',
+            'description': 'Codigo'
+         },
+         'tipo_id': {
+            'title': 'Tipo User Fk',
+            'description': 'Tipo User',
+            'fk': {
+               'table': 'user.bank_user',
+               'field': 'id'
+            },
+            'group_field': {
+               'name': 'tipo_id - descripcion'
+            }
+         },
+         'descripcion': {
+            'title': 'Descripción',
+            'description': 'Descripción'
+         }
+      }
+   };
+
    public uiDefinition: StDynamicTableUserInterface = {
       company: { sortable: false },
       id: {
@@ -134,6 +167,58 @@ export class StDynamicTableDemoComponent implements OnInit {
          status: 'Busy'
       }
    ];
+
+   public fks: Array<{ }> = [
+      {
+         codigo: 'K',
+         descripcion: 'admin',
+         id: 6,
+         tipo_id: 6
+      },
+      {
+         codigo: 'W',
+         descripcion: 'read',
+         id: 14,
+         tipo_id: 6
+      },
+      {
+         codigo: 'D',
+         descripcion: 'write',
+         id: 2,
+         tipo_id: 2
+      },
+      {
+         codigo: 'H',
+         descripcion: 'admin',
+         id: 4,
+         tipo_id: 4
+      },
+      {
+         codigo: 'I',
+         descripcion: 'read',
+         id: 5,
+         tipo_id: 5
+      },
+      {
+         codigo: 'P',
+         descripcion: 'write',
+         id: 8,
+         tipo_id: 8
+      },
+      {
+         codigo: 'C',
+         descripcion: 'special',
+         id: 1,
+         tipo_id: 1
+      },
+      {
+         codigo: 'X',
+         descripcion: 'read',
+         id: 16,
+         tipo_id: 13
+      }
+   ];
+
    public sortedUsers: Array<{ id: string, name: string, lastName: string, phone: number, company: string, status: string }> = [];
    public selectedCheckboxes: boolean[][] = [[], []];
    public statusFilter: boolean[] = [];

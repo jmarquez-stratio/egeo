@@ -42,7 +42,12 @@
                       [checked]="selected[row]"
                       (change)="onSelectRow($event, row)">
          </st-checkbox>
-         <span (click)="onClickCellLabel(row, field.id, item[field.id])">{{item[field.id]}}</span>
+         <span (click)="onClickCellLabel(row, field.id, item[field.id])" *ngIf="!field.fk; else hasFk">
+            {{item[field.id]}}
+         </span>
+         <ng-template #hasFk>
+            <a (click)="onClickFk(item, field)" class="hasFk">{{getCellContent(item, field)}}</a>
+         </ng-template>
       </td>
       <td st-table-row-hover class="st-table-hover" *ngIf="hasHoverMenu">
          <i class="icon {{hoverButton}}" (click)="onShowHoverMenu(row)"></i>

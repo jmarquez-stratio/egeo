@@ -15,7 +15,7 @@ import { StEgeo, StRequired } from '../decorators/require-decorators';
 import { Order } from '../st-table/shared/order';
 import { StTableHeader } from '../st-table/shared/table-header.interface';
 import { StDynamicTableUtils } from './utils/st-dynamic-table.utils';
-import { StDynamicTableHeader, StDynamicTableUserInterface } from './st-dynamic-table.model';
+import { StDynamicTableHeader, StDynamicTableUserInterface, StDynamicTableFkEvent } from './st-dynamic-table.model';
 import { StTableIconClasses } from '../st-table/st-table.interface';
 
 
@@ -155,6 +155,9 @@ export class StDynamicTableComponent {
    @Output() selectRow: EventEmitter<{ checked: boolean, row: number }> = new EventEmitter<{ checked: boolean, row: number }>();
    /** @Output {Object(checked: boolean, row: number)} [clickCell=] Event emitted when user clicks on checkbox of a row */
    @Output() clickCell: EventEmitter<{ row: number, fieldId: string, label: string }> = new EventEmitter<{ row: number, fieldId: string, label: string }>();
+   /** @Output {StDynamicTableFkEvent} [clickFk=] Event emitted when user clicks on Fk cell */
+   @Output() clickFk: EventEmitter<StDynamicTableFkEvent> = new EventEmitter<StDynamicTableFkEvent>();
+
 
    public fields: StDynamicTableHeader[] = [];
 
@@ -202,6 +205,22 @@ export class StDynamicTableComponent {
 
    public onLeaveRow(): void {
       this.showHoverMenu.emit(undefined);
+   }
+
+   public onClickFk(item: any, field: StDynamicTableHeader): void {
+      this.clickFk.emit({
+         fk: field.fk,
+         value: item[field.fk.field]
+      });
+   }
+
+   public getCellContent(item: { key: string, value: any }, field: StDynamicTableHeader): string {
+      if (field.group) {
+         return field.group.split(' - ')
+            .map(_groupKey => item[_groupKey])
+            .join(' - ');
+      }
+      return item[field.id];
    }
 
    public getCellClasses(field: StDynamicTableHeader): { clickable?: boolean } {

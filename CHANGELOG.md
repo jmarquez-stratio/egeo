@@ -9,6 +9,7 @@
 * st-table: Emit event when filter icon is clicked
 * st-table: Added sticky mode to st-table header
 * st-dynamic-table: Create dynamic table component in order to render tables using a json schema to define their structure
+* st-dynamic-table: added fk's and groups
 * st-spinner: Allow to customize its color from outside using css variables
 * st-sidebar: Allow to customize some styles from outside using css variables
 * st-table: Allow to customize sort and filter icons using an input
