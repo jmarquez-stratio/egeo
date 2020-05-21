@@ -295,7 +295,13 @@ export { StTableIconClasses, StTableFilterIconClasses} from './st-table/st-table
 // Dynamic Table
 export { StDynamicTableModule } from './st-dynamic-table/st-dynamic-table.module';
 export { StDynamicTableComponent } from './st-dynamic-table/st-dynamic-table.component';
-export { StDynamicTableHeader, StDynamicTableUISpecification, StDynamicTableUserInterface } from './st-dynamic-table/st-dynamic-table.model';
+export {
+   StDynamicTableHeader,
+   StDynamicTableUISpecification,
+   StDynamicTableUserInterface,
+   StDynamicTableFk,
+   StDynamicTableFkEvent
+} from './st-dynamic-table/st-dynamic-table.model';
 
 // Tag
 export { StTagModule } from './st-tag/st-tag.module';

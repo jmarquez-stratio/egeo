@@ -32,8 +32,8 @@ export class StDynamicTableUtils {
                      id: _propertyKey,
                      label: _property.title || _propertyKey,
                      reference: _property.$ref,
-                     fk: _property.fk,
-                     group: _property.group_field ? _property.group_field.name : null,
+                     fk: uiDefinition && uiDefinition.fk,
+                     group: uiDefinition && uiDefinition.group_field ? uiDefinition.group_field.name : null,
                      filters: filters,
                      filterable: filters && (filters.templateRef !== undefined || (filters.filterConfig && filters.filterConfig.length > 0)),
                      sortable: isSortable
