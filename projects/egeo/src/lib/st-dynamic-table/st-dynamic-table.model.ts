@@ -5,6 +5,7 @@ export interface StDynamicTableHeader extends StTableHeader {
    reference: string;
    fk?: StDynamicTableFk;
    group?: string;
+   type?: Array<{field: string; type: string}>;
 }
 
 export interface StDynamicTableFkEvent {

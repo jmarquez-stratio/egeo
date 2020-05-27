@@ -9,12 +9,12 @@
 * st-table: Emit event when filter icon is clicked
 * st-table: Added sticky mode to st-table header
 * st-dynamic-table: Create dynamic table component in order to render tables using a json schema to define their structure
-* st-dynamic-table: added fk's and groups
+* st-dynamic-table: added fk's, groups and types
 * st-spinner: Allow to customize its color from outside using css variables
 * st-sidebar: Allow to customize some styles from outside using css variables
 * st-table: Allow to customize sort and filter icons using an input
 * st-pagination: Allow to customize icon classes of previous and next page buttons using input "iconClasses"
-* st-pop-over: Allow to choose placement and added input 'openToLeft' to be displayed from the button left side 
+* st-pop-over: Allow to choose placement and added input 'openToLeft' to be displayed from the button left side
 * st-button: Allow to customize its style from outside using css variables
 * st-button: Updated button colors
 * st-form: Allow to customize some styles from outside using css variables and error messages
