@@ -6,6 +6,7 @@ export interface StDynamicTableHeader extends StTableHeader {
    fk?: StDynamicTableFk;
    group?: string;
    type?: Array<{field: string; type: string}>;
+   sortedByDefault?: string;
 }
 
 export interface StDynamicTableFkEvent {
@@ -15,6 +16,7 @@ export interface StDynamicTableFkEvent {
 
 export interface StDynamicTableUISpecification {
    sortable?: boolean;
+   sort?: string;
    styles?: {
       [key: string]: string;
    };

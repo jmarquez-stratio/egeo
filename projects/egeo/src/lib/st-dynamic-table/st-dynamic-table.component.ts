@@ -12,12 +12,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, In
 import { JSONSchema4 } from 'json-schema';
 
 import { StEgeo, StRequired } from '../decorators/require-decorators';
-import { Order } from '../st-table/shared/order';
+import { Order, ORDER_TYPE } from '../st-table/shared/order';
 import { StTableHeader } from '../st-table/shared/table-header.interface';
 import { StDynamicTableUtils } from './utils/st-dynamic-table.utils';
 import { StDynamicTableHeader, StDynamicTableUserInterface, StDynamicTableFkEvent } from './st-dynamic-table.model';
 import { StTableIconClasses } from '../st-table/st-table.interface';
-
 
 /**
  * @description {Component} [Dynamic Table]
@@ -175,9 +174,7 @@ export class StDynamicTableComponent {
 
    set jsonSchema(_jsonSchema: JSONSchema4) {
       this._jsonSchema = _jsonSchema;
-      this.fields = StDynamicTableUtils.getHeaderFieldsFromJsonSchema(this._jsonSchema, this._uiDefinitions);
-      this.updateFields.emit(this.fields);
-      this._cd.markForCheck();
+      this._manageFieldsUpdate();
    }
 
    /** @Input {StDynamicTableUserInterface} [uiDefinitions=''] UI definition for each field */
@@ -188,9 +185,7 @@ export class StDynamicTableComponent {
 
    set uiDefinitions(_uiDefinitions: StDynamicTableUserInterface) {
       this._uiDefinitions = _uiDefinitions;
-      this.fields = StDynamicTableUtils.getHeaderFieldsFromJsonSchema(this._jsonSchema, this._uiDefinitions);
-      this.updateFields.emit(this.fields);
-      this._cd.markForCheck();
+      this._manageFieldsUpdate();
    }
 
    public onFilterClick(selectedFilter: any): void {
@@ -256,6 +251,24 @@ export class StDynamicTableComponent {
 
    public onClickCellLabel(row: number, fieldId: string, label: string): void {
       this.clickCell.emit({ row, fieldId, label });
+   }
+
+   private _manageFieldsUpdate(): void {
+      this.fields = StDynamicTableUtils.getHeaderFieldsFromJsonSchema(this._jsonSchema, this._uiDefinitions);
+      this._setDefaultSort();
+      this.updateFields.emit(this.fields);
+      this._cd.markForCheck();
+   }
+
+   private _setDefaultSort(): void {
+      const defaultSortedField = this.fields.find(_field => _field.sortedByDefault);
+      if (defaultSortedField) {
+         const order: Order = {
+            orderBy: defaultSortedField.id,
+            type: ORDER_TYPE[defaultSortedField.sortedByDefault]
+         };
+         this.onChangeOrder(order);
+      }
    }
 
 }
